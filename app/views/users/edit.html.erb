@@ -1,0 +1,52 @@
+<div class="container">
+	<div class="row">
+		<div class="col-sm-12">
+			<h3>Edit user</h3>
+			<form action="/users/<%= @user.id %>" method="post">
+				<input name="authenticity_token" value="<%= form_authenticity_token %>" type="hidden">
+				<input type="hidden" name="_method" value="patch">
+				<div class="form-group">
+				    <label for="first_name">First Name</label>
+				    <% if @first_name_error %>
+					    <% @first_name_error.each do |error| %>
+					    	<h5><%= error %></h5>
+					    <% end %>
+				    <% end %>
+				    <input type="text" name="user[first_name]" class="form-control" id="first_name" placeholder="first name" value="<%= @user.first_name %>">
+			    </div>
+			    <div class="form-group">
+				    <label for="last_name">Last Name</label>
+				    <% if @last_name_error %>
+					    <% @last_name_error.each do |error| %>
+					    	<h5><%= error %></h5>
+					    <% end %>
+				    <% end %>
+				    <input type="text" name="user[last_name]" class="form-control" id="last_name" placeholder="last name" value="<%= @user.last_name %>">
+			    </div>
+			    <div class="form-group">
+				    <label for="email_address">Email Address</label>
+				    <% if @email_address_error %>
+					    <% @email_address_error.each do |error| %>
+					    	<h5><%= error %></h5>
+					    <% end %>
+				    <% end %>
+				    <input type="email" name="user[email_address]" class="form-control" id="email_address" placeholder="email address" value="<%= @user.email_address %>">
+			    </div>
+			    <div class="form-group">
+				    <label for="password">Password</label>
+				    <% if @password_error %>
+					    <% @password_error.each do |error| %>
+					    	<h5><%= error %></h5>
+					    <% end %>
+				    <% end %>
+				    <input type="password" name="user[password]" id="password" class="form-control" placeholder="password" value="<%= @user.password %>">
+				    <p class="help-block">Must be 8 characters long.</p>
+			    </div>
+			    <button type="submit" class="btn btn-default">Update</button>
+			</form>
+			<div class="nav">
+				<a href="/users/<%= @user.id %>" class="btn btn-link">Show</a> | <a href="/users/" class="btn btn-link">Back</a>
+			</div>
+		</div>
+	</div>
+</div>

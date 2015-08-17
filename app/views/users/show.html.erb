@@ -1,0 +1,14 @@
+<div class="container">
+	<div class="row">
+		<div class="col-sm-12">
+			<h3>Show User</h3>
+			<h5>First Name:</h5>
+			<p><%= @user.first_name %></p>
+			<h5>Last Name:</h5>
+			<p><%= @user.last_name %></p>
+			<h5>Email:</h5>
+			<p><%= @user.email_address %></p>
+			<a href="/users/<%= @user.id %>/edit" class="btn btn-link">Edit</a> | <a href="/users/" class="btn btn-link">Back</a>
+		</div>
+	</div>
+</div>
